@@ -62,3 +62,22 @@ a {
   color: white;
   text-transform: uppercase;
 }
+
+.footer {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 85%;
+  background-color: rgba(255, 255, 255, 0.4);
+  border-width: 5px;
+  border-radius: 0 0 14px 14px;
+  position: absolute;
+  left: 7%;
+  right: 5%;
+  bottom: 0;
+}
+
+.footerTopText {
+  font-family: 'Oxanium', cursive;
+  font-size: 18px;
+}
