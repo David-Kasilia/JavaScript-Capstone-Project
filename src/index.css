@@ -1,3 +1,64 @@
-body {
+
+body{
   overflow: hidden;
-}
+  background-image: url('./images/background.jpg');
+  background-repeat: no-repeat;
+  background-size: cover;
+  }
+  
+  li{
+      list-style: none;
+  }
+  
+  a{
+      text-decoration: none;
+  }
+  
+  #nav-bar{
+  display: flex;
+  align-items: center;
+  flex-direction: row;
+  justify-content: space-around;
+  width: 85%;
+  background-color: rgba(255, 255, 255, 0.4);
+  border-width: 2%;
+  border-radius: 0 0 14px 14px;
+  position: absolute;
+  left: 7%;
+  right: 5%;
+  }
+  
+  .nav-items{
+  display: flex;
+  gap: 20rem;
+  align-items: center;
+  flex-direction: row;
+  justify-content: space-evenly;
+  }
+  
+  .item{
+      display: flex;
+      align-items: center;
+      flex-direction: column;
+      justify-content: space-around;
+      background-color: rgba(235, 111, 111, 0.3);
+      border-radius: 10%;
+  }
+  
+  .logo{
+      height: 180px;
+      margin-left: -12%;
+  }
+  
+  .home-icon,
+  .about-icon{
+      height: 90px;
+  }
+  
+  .home,
+  .about{
+      font-family: 'Oxanium', cursive;
+      font-size: 25px;
+      color: white;
+      text-transform: uppercase;
+  }
