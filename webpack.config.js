@@ -5,6 +5,7 @@ module.exports = {
   mode: 'development',
   entry: './src/index.js',
   output: {
+    filename: '[name].js',
     path: path.resolve(__dirname, 'dist'),
   },
 
@@ -22,6 +23,7 @@ module.exports = {
         test: /\.html$/,
         loader: 'html-loader',
       },
+      { test: /\.txt$/, use: 'raw-loader' },
     ],
   },
 
