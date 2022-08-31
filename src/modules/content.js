@@ -19,6 +19,11 @@ const createPokemonCard = (pokemon) => {
     showModal(pokemon);
   });
 
+  const likes = document.createElement('h3');
+  // likes.innerText = 'Likes';
+  likes.setAttribute('id', 'likes');
+  likes.classList.add('likes');
+
   const pokeInnerHTML = `
   <div class="${pokemon.id} img-container">
   <img class="poke-img" src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/back/${pokemon.id}.png">
@@ -32,6 +37,7 @@ favorite
 
   pokemonEl.innerHTML = pokeInnerHTML;
   pokemonEl.append(comments);
+  comments.parentNode.insertBefore(likes, comments);
 
   pokeContainer.appendChild(pokemonEl);
 };

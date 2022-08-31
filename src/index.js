@@ -1,4 +1,5 @@
 import './index.css';
+import getLikes from './modules/likesApi';
 import getPokemon from './modules/pokeapi.js';
 
 const modal = document.getElementById('modal');
@@ -17,3 +18,5 @@ const fetchPokemons = async () => {
 };
 
 fetchPokemons();
+
+getLikes();
