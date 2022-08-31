@@ -11,17 +11,15 @@ module.exports = {
   module: {
     rules: [
       {
-        test: /\.css$/i,
-
+        test: /\.css$/,
         use: ['style-loader', 'css-loader'],
       },
       {
         test: /\.(png|svg|jpg|jpeg|gif)$/i,
-
         type: 'asset/resource',
       },
       {
-        test: /\.html$/i,
+        test: /\.html$/,
         loader: 'html-loader',
       },
     ],
@@ -32,7 +30,4 @@ module.exports = {
       template: './src/index.html',
     }),
   ],
-  optimization: {
-    runtimeChunk: 'single',
-  },
 };

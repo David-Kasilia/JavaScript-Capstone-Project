@@ -1,6 +1,5 @@
 
 body {
-  overflow: hidden;
   background-image: url('./images/background.jpg');
   background-repeat: no-repeat;
   background-size: cover;
@@ -23,9 +22,7 @@ a {
   background-color: rgba(255, 255, 255, 0.4);
   border-width: 5px;
   border-radius: 0 0 14px 14px;
-  position: absolute;
-  left: 7%;
-  right: 5%;
+  margin: 0 auto;
 }
 
 .nav-items {
@@ -63,6 +60,14 @@ a {
   text-transform: uppercase;
 }
 
+.main {
+  display: none;
+  background-color: rgba(255, 255, 255, 0.4);
+  width: 85%;
+  margin: 25px auto;
+  border-radius: 14px 14px 0 0;
+}
+
 .footer {
   display: flex;
   align-items: center;
@@ -71,10 +76,7 @@ a {
   background-color: rgba(255, 255, 255, 0.4);
   border-width: 5px;
   border-radius: 0 0 14px 14px;
-  position: absolute;
-  left: 7%;
-  right: 5%;
-  bottom: 0;
+  margin: 0 auto;
 }
 
 .footerTopText {
