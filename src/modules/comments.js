@@ -30,6 +30,7 @@ const showModal = (item) => {
   commentsDetailsRow2.classList.add('commentsDetailsRow');
 
   const nameLabel = document.createElement('p');
+
   nameLabel.classList.add('id');
   nameLabel.innerText = `Id: ${item.id}`;
 

@@ -3,7 +3,7 @@ import showModal, { commentsShow } from './comments.js';
 
 const modal = document.getElementById('modal');
 
-const createPokemonCard = (pokemon) => {
+const createPokemonCard = (pokemon, likeObj) => {
   const pokeContainer = document.getElementById('poke-container');
   const pokemonEl = document.createElement('div');
   pokemonEl.classList.add('pokemon');
@@ -20,19 +20,25 @@ const createPokemonCard = (pokemon) => {
     commentsShow(pokemon.id);
   });
 
+  const likes = document.createElement('h3');
+  likes.setAttribute('id', 'likes');
+  likes.classList.add('likes');
+  likes.innerText = `likes: ${likeObj ? likeObj.likes : 0}`;
+
   const pokeInnerHTML = `
   <div class="${pokemon.id} img-container">
   <img class="poke-img" src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/back/${pokemon.id}.png">
   </div>
 <div class="info">
-<h3 class="poke-name">${name} <span class="material-symbols-outlined">
+<h3 class="poke-name">${name} <button id="like-btn"><span class="material-symbols-outlined">
 favorite
-</span> </h3>
+</span></button></h3>
 </div>
   `;
 
   pokemonEl.innerHTML = pokeInnerHTML;
   pokemonEl.append(comments);
+  comments.parentNode.insertBefore(likes, comments);
 
   pokeContainer.appendChild(pokemonEl);
 };

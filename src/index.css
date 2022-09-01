@@ -232,3 +232,7 @@ a {
   border-radius: 10px;
   gap: 30px;
 }
+
+#about {
+  display: none;
+}
