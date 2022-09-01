@@ -5,7 +5,7 @@ import getPokemon from './modules/pokeapi.js';
 
 // function to fetch pokemon
 
-const pokemonNumber = 30;
+const pokemonNumber = 24;
 const fetchPokemons = async () => {
   const data = await getLikes();
 
