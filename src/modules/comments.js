@@ -3,6 +3,26 @@ import { toUpper } from 'lodash';
 const modal = document.getElementById('modal');
 let showComments;
 
+export const commentsShow = async (id) => {
+  const url = `https://us-central1-involvement-api.cloudfunctions.net/capstoneApi/apps/BnTnru6kmlT778QrlDMq/comments?item_id=${id}`;
+
+  const res = await fetch(url);
+  const data = await res.json();
+  await showComments(data);
+};
+
+const postComment = async (options) => {
+  const url = 'https://us-central1-involvement-api.cloudfunctions.net/capstoneApi/apps/BnTnru6kmlT778QrlDMq/comments';
+  await fetch(url, {
+    body: JSON.stringify(options),
+    method: 'POST',
+    headers: {
+      'Content-type': 'application/json; charset=UTF-8',
+    },
+  });
+  commentsShow(options.item_id);
+};
+
 const showModal = (item) => {
   const commentsModal = document.createElement('div');
   commentsModal.classList.add('commentsModal');
@@ -48,22 +68,25 @@ const showModal = (item) => {
   giftType.classList.add('height');
   giftType.innerText = `Height: ${item.height}`;
 
+  const commentsContainer = document.createElement('div');
+  commentsContainer.classList.add('commentsContainer');
+
+  const commentsTitle = document.createElement('h2');
+  commentsTitle.classList.add('commentsTitle');
+  commentsTitle.innerText = 'Comments (0)';
+
+  const comments = document.createElement('ul');
+  comments.classList.add('comments');
+
+  commentsContainer.append(commentsTitle);
+
   commentsDetailsRow2.append(flavor, giftType);
   commentsDetails.append(commentsDetailsRow1, commentsDetailsRow2);
-  commentsModal.append(close, commentsImg, modalTitle, commentsDetails);
+  commentsModal.append(close, commentsImg, modalTitle, commentsDetails, commentsContainer);
 
   showComments = (data) => {
-    const commentsContainer = document.createElement('div');
-    commentsContainer.classList.add('commentsContainer');
-
-    const commentsTitle = document.createElement('h2');
-    commentsTitle.classList.add('commentsTitle');
-    commentsTitle.innerText = 'Comments (0)';
-
-    const comments = document.createElement('ul');
-    comments.classList.add('comments');
-
     if (data && data.length > 0) {
+      comments.innerHTML = '';
       data.forEach((item) => {
         const comment = document.createElement('li');
         comment.classList.add('comment');
@@ -76,28 +99,52 @@ const showModal = (item) => {
       comments.append(noComments);
     }
 
-    commentsContainer.append(commentsTitle, comments);
-    commentsModal.append(commentsContainer);
+    commentsContainer.append(comments);
   };
+
+  const addNewCommentContainer = document.createElement('div');
+  addNewCommentContainer.classList.add('addNewCommentContainer');
+
+  const addNewCommentTitle = document.createElement('h2');
+  addNewCommentTitle.classList.add('addNewCommentTitle');
+  addNewCommentTitle.innerText = 'Add new comment';
+
+  const nameInput = document.createElement('input');
+  nameInput.classList.add('nameInput');
+  nameInput.setAttribute('placeholder', 'Your name');
+  nameInput.setAttribute('id', 'name');
+  nameInput.setAttribute('type', 'text');
+  nameInput.setAttribute('aria-label', 'name');
+
+  const textarea = document.createElement('textarea');
+  textarea.classList.add('textarea');
+  textarea.innerText = 'Write your comment';
+  textarea.setAttribute('id', 'comment');
+
+  const commentBtn = document.createElement('a');
+  commentBtn.classList.add('commentBtn');
+  commentBtn.innerText = 'Comment';
+  commentBtn.addEventListener('click', () => {
+    const comment = {
+      item_id: item.id,
+      username: nameInput.value,
+      comment: textarea.value,
+    };
+
+    postComment(comment);
+  });
+
+  addNewCommentContainer.append(addNewCommentTitle, nameInput, textarea, commentBtn);
+  commentsModal.append(addNewCommentContainer);
 
   modal.innerHTML = '';
   modal.append(commentsModal);
 };
 
 export default async (id) => {
-  // base for the api to get the pokemon
   const url = `https://pokeapi.co/api/v2/pokemon/${id.id}`;
 
-  // fetch data
   const res = await fetch(url);
   const pokemon = await res.json();
   showModal(pokemon);
-};
-
-export const commentsShow = async (id) => {
-  const url = `https://us-central1-involvement-api.cloudfunctions.net/capstoneApi/apps/BnTnru6kmlT778QrlDMq/comments?item_id=${id}`;
-
-  const res = await fetch(url);
-  const data = await res.json();
-  await showComments(data);
 };

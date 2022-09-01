@@ -154,7 +154,7 @@ a {
 .modal {
   display: none;
   width: 100%;
-  height: 100%;
+  height: 100vh;
   align-items: center;
   justify-content: center;
   background-color: rgba(255, 255, 255, 0.5);
@@ -169,16 +169,17 @@ a {
   flex-direction: column;
   align-items: center;
   justify-content: center;
+  flex-shrink: 0;
   z-index: 111;
   background: linear-gradient(#2980b9, #6dd5fa, #eee);
   width: 50%;
-  min-height: 50%;
-  max-height: 100%;
+  height: 96vh;
   position: relative;
   outline: solid 4px rgba(68, 137, 201, 1);
   border-radius: 14px;
-  gap: 30px;
-  padding: 30px 1px;
+  gap: 10px;
+  overflow-y: auto;
+  padding-bottom: 60px;
 }
 
 .closeIcon {
@@ -186,7 +187,7 @@ a {
   top: 30px;
   right: 30px;
   font-size: 20px;
-  color: var(--orange);
+  color: yellow;
 }
 
 .closeIcon:hover {
@@ -197,10 +198,12 @@ a {
   width: 200px;
   height: 200px;
   background-size: contain;
+  flex-shrink: 0;
   background-position: center;
   background-repeat: no-repeat;
   background-color: rgba(255, 255, 255, 0.5);
   border-radius: 10px;
+  margin-top: 250px;
 }
 
 .commentsDetails {
@@ -230,7 +233,45 @@ a {
   width: 80%;
   padding: 20px;
   border-radius: 10px;
-  gap: 30px;
+  gap: 10px;
+}
+
+.addNewCommentContainer {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  background-color: rgba(255, 255, 255, 0.5);
+  width: 80%;
+  padding: 20px;
+  border-radius: 10px;
+}
+
+.nameInput {
+  width: 95%;
+  height: 25px;
+  padding: 5px;
+  outline: none;
+  border: none;
+  border-radius: 5px;
+}
+
+.textarea {
+  width: 95%;
+  height: 80px;
+  padding: 5px;
+  outline: none;
+  border: none;
+  border-radius: 5px;
+}
+
+.commentBtn {
+  align-self: flex-end;
+  background-color: rgb(255 224 0);
+  padding: 5px 10px;
+  border-radius: 5px;
+  outline: solid 1px black;
 }
 
 #about {
