@@ -34,7 +34,6 @@ const showModal = (item) => {
   nameLabel.classList.add('id');
   nameLabel.innerText = `Id: ${item.id}`;
 
-
   const growth = document.createElement('p');
   growth.classList.add('order');
   growth.innerText = `Order: ${item.order}`;
