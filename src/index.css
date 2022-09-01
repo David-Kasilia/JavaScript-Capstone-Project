@@ -171,3 +171,7 @@ a {
   flex-direction: row;
   gap: 60px;
 }
+
+#about {
+  display: none;
+}

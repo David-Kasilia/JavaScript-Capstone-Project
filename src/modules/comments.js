@@ -23,7 +23,7 @@ const showModal = (item) => {
 
   const nameLabel = document.createElement('p');
   nameLabel.classList.add('nameLabel');
-  nameLabel.innerText = 'Name: Cheri';
+  nameLabel.innerText = `Name: ${item.name}`;
 
   const growth = document.createElement('p');
   growth.classList.add('growth');

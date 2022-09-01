@@ -29,9 +29,9 @@ const createPokemonCard = (pokemon, likeObj) => {
   <img class="poke-img" src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/back/${pokemon.id}.png">
   </div>
 <div class="info">
-<h3 class="poke-name">${name} <span class="material-symbols-outlined">
+<h3 class="poke-name">${name} <button id="like-btn"><span class="material-symbols-outlined">
 favorite
-</span> </h3>
+</span></button></h3>
 </div>
   `;
 
