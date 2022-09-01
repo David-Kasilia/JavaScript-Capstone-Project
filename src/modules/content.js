@@ -1,5 +1,5 @@
 // populating the html container for the pokemon
-import showModal from './comments.js';
+import showModal, { commentsShow } from './comments.js';
 
 const modal = document.getElementById('modal');
 
@@ -17,6 +17,7 @@ const createPokemonCard = (pokemon) => {
   comments.addEventListener('click', () => {
     modal.style.display = 'flex';
     showModal(pokemon);
+    commentsShow(pokemon.id);
   });
 
   const pokeInnerHTML = `
