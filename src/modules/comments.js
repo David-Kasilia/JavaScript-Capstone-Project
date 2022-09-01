@@ -57,7 +57,6 @@ const showModal = (item) => {
 
     const commentsTitle = document.createElement('h2');
     commentsTitle.classList.add('commentsTitle');
-    console.log(data);
     commentsTitle.innerText = 'Comments (0)';
 
     const comments = document.createElement('ul');
@@ -65,7 +64,6 @@ const showModal = (item) => {
 
     if (data && data.length > 0) {
       data.forEach((item) => {
-        console.log(item)
         const comment = document.createElement('li');
         comment.classList.add('comment');
         comment.innerText = `${item.creation_date}  ${item.username}: ${item.comment}`;
