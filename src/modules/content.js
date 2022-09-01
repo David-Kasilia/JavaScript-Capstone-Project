@@ -3,7 +3,7 @@ import showModal from './comments.js';
 
 const modal = document.getElementById('modal');
 
-const createPokemonCard = (pokemon) => {
+const createPokemonCard = (pokemon, likeObj) => {
   const pokeContainer = document.getElementById('poke-container');
   const pokemonEl = document.createElement('div');
   pokemonEl.classList.add('pokemon');
@@ -20,9 +20,9 @@ const createPokemonCard = (pokemon) => {
   });
 
   const likes = document.createElement('h3');
-  // likes.innerText = 'Likes';
   likes.setAttribute('id', 'likes');
   likes.classList.add('likes');
+  likes.innerText = `likes: ${likeObj ? likeObj.likes : 0}`;
 
   const pokeInnerHTML = `
   <div class="${pokemon.id} img-container">
