@@ -1,11 +1,6 @@
 import './index.css';
 import getPokemon from './modules/pokeapi.js';
 
-const modal = document.getElementById('modal');
-modal.addEventListener('click', () => {
-  modal.style.display = 'none';
-});
-
 // function to fetch pokemon
 
 const pokemonNumber = 20;
