@@ -49,5 +49,10 @@ I tested the website by running the code to a live server and opened it with Moz
 <li>Habib Payenda <a href="https://github.com/HabibPayenda">Link To Github Profile</a></li>
 </ul>
 
+## 📝 License
+
+This project is <a href="https://github.com/David-Kasilia/JavaScript-Capstone-Project/blob/develop/MIT.md">MIT</a></li> licensed.
+
+
 # Contributing :handshake:
 Contributions, issues, and feature request are welcome anytime.
