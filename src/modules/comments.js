@@ -23,7 +23,7 @@ const postComment = async (options) => {
   commentsShow(options.item_id);
 };
 
-const commentsCounter = (data) => {
+export const commentsCounter = (data) => {
   let count = 0;
   if (data && data.length > 0) {
     count = data.length;
