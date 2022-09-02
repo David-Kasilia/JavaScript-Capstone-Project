@@ -23,6 +23,14 @@ const postComment = async (options) => {
   commentsShow(options.item_id);
 };
 
+const commentsCounter = (data) => {
+  let count = 0;
+  if (data && data.length > 0) {
+    count = data.length;
+  }
+  return count;
+};
+
 const showModal = (item) => {
   const commentsModal = document.createElement('div');
   commentsModal.classList.add('commentsModal');
@@ -73,7 +81,6 @@ const showModal = (item) => {
 
   const commentsTitle = document.createElement('h2');
   commentsTitle.classList.add('commentsTitle');
-  commentsTitle.innerText = 'Comments (0)';
 
   const comments = document.createElement('ul');
   comments.classList.add('comments');
@@ -85,6 +92,7 @@ const showModal = (item) => {
   commentsModal.append(close, commentsImg, modalTitle, commentsDetails, commentsContainer);
 
   showComments = (data) => {
+    const count = commentsCounter(data);
     if (data && data.length > 0) {
       comments.innerHTML = '';
       data.forEach((item) => {
@@ -98,6 +106,8 @@ const showModal = (item) => {
       noComments.innerText = 'Be the first to add a comment';
       comments.append(noComments);
     }
+
+    commentsTitle.innerText = `Comments (${count})`;
 
     commentsContainer.append(comments);
   };
