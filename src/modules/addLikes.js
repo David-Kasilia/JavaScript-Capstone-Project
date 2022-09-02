@@ -12,8 +12,7 @@ const addLikes = async (name) => {
     },
   };
 
-  const request = new Request(url);
-  await fetch(request, data);
+  await fetch(url, data);
   getLikes();
 };
 

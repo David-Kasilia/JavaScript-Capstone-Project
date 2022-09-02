@@ -1,4 +1,5 @@
 // function to get pokemon
+// eslint-disable-next-line import/no-cycle
 import createPokemonCard from './content.js';
 
 const getPokemon = async (id, likes) => {

@@ -1,6 +1,8 @@
 // populating the html container for the pokemon
 import showModal, { commentsShow } from './comments.js';
 import addLikes from './addLikes.js';
+// eslint-disable-next-line import/no-cycle
+import getUpdatedLikes from '../index.js';
 
 const modal = document.getElementById('modal');
 
@@ -24,7 +26,12 @@ const createPokemonCard = (pokemon, likeObj) => {
   const likes = document.createElement('h3');
   likes.setAttribute('id', 'likes');
   likes.classList.add('likes');
-  likes.innerText = `likes: ${likeObj ? likeObj.likes : 0}`;
+  if (likeObj) {
+    const pokemonLikes = likeObj.filter((item) => item.item_id === pokemon.id);
+    likes.innerText = `likes: ${pokemonLikes[0] ? pokemonLikes[0].likes : 0}`;
+  } else {
+    likes.innerText = 'likes: 0';
+  }
 
   const loveIcon = document.createElement('i');
   loveIcon.setAttribute('id', 'love-icon');
@@ -36,6 +43,8 @@ const createPokemonCard = (pokemon, likeObj) => {
   likeBtn.append(loveIcon);
   likeBtn.addEventListener('click', () => {
     addLikes(pokemon.id);
+    pokeContainer.innerHTML = '';
+    getUpdatedLikes();
   });
 
   const infoContainer = document.createElement('div');
