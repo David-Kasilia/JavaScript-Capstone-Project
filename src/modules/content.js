@@ -1,8 +1,6 @@
 // populating the html container for the pokemon
 import showModal, { commentsShow } from './comments.js';
-import addLikes from './addLikes.js';
-// eslint-disable-next-line import/no-cycle
-import getUpdatedLikes from '../index.js';
+import getLikes from './likesApi.js';
 
 const modal = document.getElementById('modal');
 
@@ -42,9 +40,23 @@ const createPokemonCard = (pokemon, likeObj) => {
   likeBtn.classList.add('like-btn');
   likeBtn.append(loveIcon);
   likeBtn.addEventListener('click', () => {
-    addLikes(pokemon.id);
-    pokeContainer.innerHTML = '';
-    getUpdatedLikes();
+    const url = 'https://us-central1-involvement-api.cloudfunctions.net/capstoneApi/apps/BnTnru6kmlT778QrlDMq/likes/';
+    (async () => {
+      const data = {
+        method: 'POST',
+        body: JSON.stringify({
+          item_id: pokemon.id,
+        }),
+        headers: {
+          'Content-type': 'application/json; charset=UTF-8',
+        },
+      };
+
+      await fetch(url, data);
+      let pokeMonLikes = await getLikes();
+      pokeMonLikes = pokeMonLikes.filter((item) => item.item_id === pokemon.id);
+      likes.innerText = `likes: ${pokeMonLikes[0] ? pokeMonLikes[0].likes : 0}`;
+    })();
   });
 
   const infoContainer = document.createElement('div');

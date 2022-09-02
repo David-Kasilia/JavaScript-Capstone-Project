@@ -15,15 +15,9 @@ const fetchPokemons = async () => {
   }
 };
 
-const getUpdatedLikes = async () => {
-  await fetchPokemons();
-};
-
 fetchPokemons();
 
 const count = document.querySelector('.home');
 count.innerText = `HOME (${pokemonNumber})`;
 
 spa();
-
-export default getUpdatedLikes;
