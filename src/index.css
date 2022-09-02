@@ -276,4 +276,44 @@ a {
 
 #about {
   display: none;
+  height: 68vh;
+  width: 85%;
+  background-color: rgba(255, 255, 255, 0.75);
+  border-width: 5px;
+  border-radius: 0 0 14px 14px;
+  margin: auto;
+  margin-top: 5px;
+  margin-bottom: 5px;
+  padding-top: 20px;
+}
+
+.about-title {
+  font-size: 30px;
+  text-align: center;
+  color: rgba(15, 15, 15, 0.95);
+}
+
+.about-text {
+  margin-top: 20px;
+  font-size: 20px;
+  text-align: center;
+}
+
+.about-text2 {
+  margin-top: 40px;
+  font-size: 20px;
+  text-align: center;
+}
+
+.about-text3 {
+  font-size: 20px;
+  text-align: center;
+}
+
+hr {
+  width: 50%;
+  display: block;
+  margin: auto;
+  position: relative;
+  top: 25px;
 }
