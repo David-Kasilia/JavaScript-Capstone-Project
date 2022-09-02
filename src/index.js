@@ -3,10 +3,9 @@ import getLikes from './modules/likesApi.js';
 import spa from './modules/spa.js';
 // eslint-disable-next-line import/no-cycle
 import getPokemon from './modules/pokeapi.js';
+import pokemonNumber from './modules/pokeCount.js';
 
 // function to fetch pokemon
-
-const pokemonNumber = 20;
 const fetchPokemons = async () => {
   const data = await getLikes();
 
